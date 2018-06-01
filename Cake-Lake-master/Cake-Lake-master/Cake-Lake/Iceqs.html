@@ -1,0 +1,238 @@
+<!doctype html>
+	<html>
+		<head>
+			<style>
+			.card{
+			width:300px;
+			padding:10px;
+			margin:10px;
+			display:inline-block;
+			border-radius:10px;
+			box-shadow:black 5px 5px 5px;
+			}
+			h2{
+			font-family:"Arial";
+			text-shadow:gray 2px 2px 2px;
+			}
+			img{
+			width:90%;
+			margin:5px;
+			border-radius:10px;
+			box-shadow:black 5px 5px 5px;
+			}
+			
+		h3{
+   font-family:"Times New Roman";
+   text-shadow:gray 1px 1px 1px;
+   }
+   
+   img{
+   width:90%;
+   margin:5px;
+   border-radius:10px;
+   box-shadow:black 5px 5px 5px;
+   }
+   
+   h1{
+   font-family: "Times New Roman";
+   }
+   
+   h2{
+   font-family: "Times New Roman";
+   font-size: 23px;
+   }
+   
+   #myCarousel{
+	width: 550px;
+	center-right 50px 50px 50px;
+	}
+	
+	body{
+	background: linear-gradient(to right,white, orange);
+	}
+	
+	p{
+	font-family: "Times new Roman";
+	font-size: 23px;
+	}
+	
+	.jumbotron-billboard .img {
+    margin-bottom: 0px;
+    opacity: 0.5;
+    color: #fff;
+    background: #000 url("http://www.chatelaine.com/wp-content/uploads/2017/03/rules-fo-rmaking-the-perfect-cake.jpg") top center no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: hidden;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:1;
+	}
+	.jumbotron h2 {margin-top:0;}
+	.jumbotron {
+	position:relative;
+	padding-top:50px;
+	padding-bottom:50px;
+	}
+	.jumbotron .container {
+	position:relative;
+	z-index:2;
+	}
+
+	@media screen and (max-width: 768px) {
+	.jumbotron {
+    padding-top:20px;
+    padding-bottom:20px;
+	}
+	}
+	
+	image{
+	width: 100px;
+	}
+	
+	.picture{
+	position: absolute;
+    right: 0;
+    width: 300px;
+    height: 300px;
+	}
+	
+	.navbar {
+		margin-bottom: 0;
+		background-color: #2d2d30;
+		border: 0;
+		font-size: 11px !important;
+		letter-spacing: 4px;
+		opacity:0.9;
+   }
+   .navbar li a, .navbar .navbar-brand { 
+       color: #d5d5d5 !important;
+   }
+   .navbar-nav li a:hover {
+       color: #fff !important;
+   }
+   .navbar-nav li.active a {
+       color: #fff !important;
+       background-color:#29292c !important;
+   }
+   .navbar-default .navbar-toggle {
+       border-color: transparent;
+   }
+   .open .dropdown-toggle {
+       color: #fff ;
+       background-color: #555 !important;
+   }
+   .dropdown-menu li a {
+       color: #000 !important;
+   }
+   .dropdown-menu li a:hover {
+       background-color: red !important;
+   }
+	
+			</style>
+		   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		   <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+		   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+		   <script src = "https://projectquiz-67c0c.firebaseio.com/.json"></script>
+		   <script type = "text/template" id = "temp">
+			
+				<div class = "card">
+					<h2>{{ID}}</h2>
+					<h4>{{question}}</h4><hr>
+					<button><p>A) {{choiceA}}</p></button><hr>
+					<button><p>B) {{choiceB}}</p></button><hr>
+					<button><p>C) {{choiceC}}</p></button><hr>
+					<button><p>D) {{choiceD}}</p></button><hr>
+					<input type = "text" id = "{{ID}}" placeholder = "answer"></input><hr>
+					
+				</div>
+			
+			</script>
+			<script>
+				
+				var data = "";
+						
+				function getData(){
+					$.getJSON("https://projectquiz-67c0c.firebaseio.com/.json", function(results){
+						data = results;
+						displayData();
+					})
+				}
+				
+				function displayData(){
+					var build = "";
+					var temp = document.getElementById("temp").innerHTML;
+					var output = document.getElementById("output");
+					
+					for (var key in data.quiz1){
+						build += Mustache.render(temp, data.quiz1[key]);
+					}
+					
+					output.innerHTML = build;
+				}
+			
+			function grade(){
+				var ansKey = "";
+				var answer = "";
+				var build = 0;
+				var wrong = "";
+				for(var key in data.quiz1){
+					answer = document.getElementById(key).value;
+					ansKey = data.quiz1[key].answer;
+					if (answer == ansKey){
+						build += 1/5;
+					}else{
+						wrong += key + " ";
+					}
+				}
+				
+				alert("you got " + build * 100 + "%" + "\n" + 
+					"you got " + wrong + "wrong");
+				
+			}
+			
+			</script>
+		</head>
+		<body onload = "getData()">
+		
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+     <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+     <span class="icon-bar"></span>
+     <span class="icon-bar"></span>
+     <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage">Cake Lake</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+     <li><a href="file:///C:/Users/jpere7330/Documents/web/prajectu/Home%20Page.html">CAKES</a></li>
+     <li><a href="file:///C:/Users/jpere7330/Documents/web/prajectu/CUPCAKES.html">CUP CAKES</a></li>
+     <li><a href="file:///C:/Users/jpere7330/Documents/web/prajectu/Cheese%20Cakes.html">CHEESE CAKES</a></li>
+     <li><a href="file:///C:/Users/jpere7330/Documents/web/prajectu/Icecream%20Cakes.html">ICE CREAM CAKES</a></li>
+     <li class="dropdown">
+       <a class="dropdown-toggle" data-toggle="dropdown" href="#">TESTS
+       <span class="caret"></span></a>
+       <ul class="dropdown-menu">
+      <li><a href="file:///C:/Users/jpere7330/Documents/web/prajectu/cupqs.html">CUP Cakes Quiz</a></li>
+      <li><a href="file:///C:/Users/jpere7330/Documents/web/prajectu/Chezqs.html">CHEESE Cakes Quiz</a></li>
+      <li><a href="file:///C:/Users/jpere7330/Documents/web/prajectu/Iceqs.html">ICE CREAM Cakes Quiz</a></li> 
+       </ul>
+     </li>
+     <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+      </ul>
+    </div>
+     </div>
+   </nav>
+			
+			<br><br><br>
+			
+			<div id = "output"></div>
+			<button onclick = "grade()"> Check your grade </button>
+			
+		</body>
+	</html>

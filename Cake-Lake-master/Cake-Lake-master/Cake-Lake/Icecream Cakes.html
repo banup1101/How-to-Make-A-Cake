@@ -1,0 +1,293 @@
+<!doctype html>
+ <html>
+  <head>
+   <style>   
+   h3{
+   font-family:"Times New Roman";
+   text-shadow:gray 1px 1px 1px;
+   }
+   
+   img{
+   width:90%;
+   margin:5px;
+   border-radius:10px;
+   box-shadow:black 5px 5px 5px;
+   }
+   
+   h1{
+   font-family: "Times New Roman";
+   }
+   
+   h2{
+   font-family: "Times New Roman";
+   font-size: 23px;
+   }
+   
+   #myCarousel{
+	width: 550px;
+	center-right 50px 50px 50px;
+	}
+	
+	body{
+	background: linear-gradient(to right,white, orange);
+	}
+	
+	p{
+	font-family: "Times new Roman";
+	font-size: 23px;
+	}
+	
+	.jumbotron-billboard .img {
+    margin-bottom: 0px;
+    opacity: 0.5;
+    color: #fff;
+    background: #000 url("http://www.chatelaine.com/wp-content/uploads/2017/03/rules-fo-rmaking-the-perfect-cake.jpg") top center no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: hidden;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:1;
+	}
+	.jumbotron h2 {margin-top:0;}
+	.jumbotron {
+	position:relative;
+	padding-top:50px;
+	padding-bottom:50px;
+	}
+	.jumbotron .container {
+	position:relative;
+	z-index:2;
+	}
+
+	@media screen and (max-width: 768px) {
+	.jumbotron {
+    padding-top:20px;
+    padding-bottom:20px;
+	}
+	}
+	
+	image{
+	width: 100px;
+	}
+	
+	.picture{
+	position: absolute;
+    right: 0;
+    width: 300px;
+    height: 300px;
+	}
+	
+	.navbar {
+		margin-bottom: 0;
+		background-color: #2d2d30;
+		border: 0;
+		font-size: 11px !important;
+		letter-spacing: 4px;
+		opacity:0.9;
+   }
+   .navbar li a, .navbar .navbar-brand { 
+       color: #d5d5d5 !important;
+   }
+   .navbar-nav li a:hover {
+       color: #fff !important;
+   }
+   .navbar-nav li.active a {
+       color: #fff !important;
+       background-color:#29292c !important;
+   }
+   .navbar-default .navbar-toggle {
+       border-color: transparent;
+   }
+   .open .dropdown-toggle {
+       color: #fff ;
+       background-color: #555 !important;
+   }
+   .dropdown-menu li a {
+       color: #000 !important;
+   }
+   .dropdown-menu li a:hover {
+       background-color: red !important;
+   }
+	
+   </style>
+   
+   <!-- Da Script -->
+   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+   <script src = "https://projectquiz-67c0c.firebaseio.com/.json"></script>
+   <script type = "text/template" id = "temp">
+   </script>
+   
+   <!--Where All The Magic Is SUPPOSE to happen --> 
+   <script>
+   
+   </script>
+  </head>
+  <body>
+  
+	<!-- THE NAVBAR -->
+	
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+     <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+     <span class="icon-bar"></span>
+     <span class="icon-bar"></span>
+     <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage">Cake Lake</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+     <li><a href="file:///C:/Users/jpere7330/Documents/web/prajectu/Home%20Page.html">CAKES</a></li>
+     <li><a href="file:///C:/Users/jpere7330/Documents/web/prajectu/CUPCAKES.html">CUP CAKES</a></li>
+     <li><a href="file:///C:/Users/jpere7330/Documents/web/prajectu/Cheese%20Cakes.html">CHEESE CAKES</a></li>
+     <li><a href="file:///C:/Users/jpere7330/Documents/web/prajectu/Icecream%20Cakes.html">ICE CREAM CAKES</a></li>
+     <li class="dropdown">
+       <a class="dropdown-toggle" data-toggle="dropdown" href="#">TESTS
+       <span class="caret"></span></a>
+       <ul class="dropdown-menu">
+      <li><a href="file:///C:/Users/jpere7330/Documents/web/prajectu/cupqs.html">CUP Cakes Quiz</a></li>
+      <li><a href="file:///C:/Users/jpere7330/Documents/web/prajectu/Chezqs.html">CHEESE Cakes Quiz</a></li>
+      <li><a href="file:///C:/Users/jpere7330/Documents/web/prajectu/Iceqs.html">ICE CREAM Cakes Quiz</a></li> 
+       </ul>
+     </li>
+     <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+      </ul>
+    </div>
+     </div>
+   </nav>
+   
+	<!-- The Jumbalubajumbotron -->
+   
+	<!--<div class="container">
+		<div class="jumbotron">
+		<h1>Icecream Cakes</h1> 
+        <p>Here you will find the instructions to make an icecream cake.<p> 
+    </div>
+	</div> -->
+	<br><br><br>
+	<div class="jumbotron jumbotron-billboard">
+	<div class="img"></div>
+    <div class="container">
+    <div class="row">
+	<div class="col-lg-12">
+		<h2>ICECREAM CAKES</h2>
+	</div>
+    </div>
+    </div>
+	</div>
+   
+   <h4>An ice cream cake is ice cream in the shape of a cake with layers of sponge cake or cookie crumble in between. A popular form is a three-layer cake, with a layer of ice cream between two layers of cake. Ice cream (derived from earlier iced cream or cream ice) is a sweetened frozen food typically eaten as a snack or dessert. It is usually made from dairy products, such as milk and cream, and often combined with fruits or other ingredients and flavors. It is typically sweetened with sugar or sugar substitutes.</h4>
+   
+   
+   <br>
+   <!-- The Grid Thingy -->
+   
+   <div class="container">
+   
+    <div class="row">
+        <div class="col-lg-2">
+      <!--<img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/ThumbsUp.svg/1280px-ThumbsUp.svg.png"></img> -->
+     </div>
+        <div class="col-lg-8=6">
+		<h3> THE STEPS NEEDED</h3>
+		<p> 1)Prepare cake according to package directions; bake in a 9x13 inch baking dish and cool completely.</p>
+		<p> 2)Use ice cream that comes in a rectangular carton. Remove the carton and, using a piece of string or dental floss, cut the ice cream in half lengthwise (long side to long side) and place the two layers side by side on a piece of waxed paper.</p>
+		<p> 3)Place the cooled cake over the ice cream. Trim the cake and ice cream so that the edges match.</p>
+		<p> 4)Place a board or serving platter over the cake, hold onto the waxed paper and board, and flip the ice cream cake over. Remove the waxed paper and smooth out the seam between the ice cream slabs.</p>
+		<p> 5)Cover with waxed paper and freeze until very firm. Decorate as desired. </p>
+	  
+     </div>
+      </div>
+   
+    <!--<div class = "row">
+     <div class = "col-lg-8">
+      <h3>Cascading Style Sheets, fondly referred to as CSS, is a simple design language intended 
+      to simplify the process of making web pages presentable. CSS handles the look and feel part 
+      of a web page. Using CSS, you can control the color of the text, the style of fonts, the 
+      spacing between paragraphs, how columns are sized and laid out, what background images or colors 
+      are used, layout designs,variations in display for different devices and screen sizes as well 
+      as a variety of other effects. CSS is easy to learn and understand but it provides powerful 
+      control over the presentation of an HTML document. Most commonly, CSS is combined with the markup 
+      languages HTML or XHTML.
+      </h3>
+     </div>
+     <div class = "col-lg-4">
+      <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/2000px-HTML5_logo_and_wordmark.svg.png"></img>
+     </div>
+    </div>
+    
+    <div class = "row">
+     <div class = "col-lg-4">
+      <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/2000px-CSS3_logo_and_wordmark.svg.png"></img>
+     </div>
+     <div class = "col-lg-8">
+      <h3>HTML is a computer language devised to allow website creation. These websites can then 
+      be viewed by anyone else connected to the Internet. It is relatively easy to learn, with the 
+      basics being accessible to most people in one sitting; and quite powerful in what it allows 
+      you to create. It is constantly undergoing revision and evolution to meet the demands and 
+      requirements of the growing Internet audience under the direction of the » W3C, the organisation 
+      charged with designing and maintaining the language.
+      </h3>
+     </div>
+    </div> -->
+   </div>
+   
+    <!-- The C word i can never spell correctly -->
+	
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="http://tastykitchen.com/wp-content/uploads/2010/07/Tasty-Kitchen-Blog-Banana-Split-Ice-Cream-Cake-18.jpg" alt="Cake 1">
+  </div>
+
+    <div class="item">
+      <img src="http://thegirlinspired.com/wp-content/uploads/2014/01/Ice-Cream-Cake1.jpg" alt="Cake 2">
+    </div>
+
+    <div class="item">
+      <img src="https://thegoodbatch.com/wp-content/uploads/2015/07/ChocolateCaramelCake_001-630x420.jpg" alt="Cake 3">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>	
+	<h2> FACTS ABOUT AN ICECREAM CAKE <h2>
+	<h4>It is unclear who invented the ice cream cake. The combination of ice cream and pastry and the molding and layering of ice cream into shapes originated in England in the 1700s. The idea of molding ice cream evolved from trifle, an English dessert consisting of layers of fruit, cream, and pastry.</h4>
+	<h4>The Difference between a cake and pastry is that Cake and Pastry, both are baked products and are made from flour. Cake is generally made from a mixture of flour, sugar, eggs, and butter or oil whereas the pastry, usually a sweet desert, essentially includes a fat that is solid in room temperature.</h4>
+	<h4>Ice-cream cake is very popular in North America and Australia, but not as common in Europe.</h4>
+	<h4>Ice-cream cakes were originally luxurious desserts that wealthy men and women ate.</h4>
+	<h4>Food historians believe ice-cream cakes were invented in the 1600s, becoming popular in the next century, and ice-cream cake recipes from the 1870s have been found.</h4>
+	<h4>
+	
+	
+<!-- IMAGES :D -->
+	<div class = "picture">
+	<image src="https://www.sugarhero.com/wp-content/uploads/2014/08/ice-cream-sundae-cake-3.jpg" class="img-thumbnail" alt="A Pretty Cake">
+	</div>
+	
+	
+  </body>
+ </html>
